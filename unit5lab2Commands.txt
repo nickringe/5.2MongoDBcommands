@@ -1,0 +1,43 @@
+1. db.people.find()
+	//lists all people
+
+2. db.people.count()
+	//counts all people
+
+3. db.people.find({state: ("Arizona")}) 
+	//lists all people from state Arizona
+
+4. db.people.find({state: ("Arizona"), gender: ("Male")})
+	//lists all people from Arizona who are Male
+
+5. db.people.find( { $or: [ { state: ("Arizona") }, { state: ("New Mexico") } ] } )
+	//lists all people from Arizona and New Mexico
+
+6. db.people.find( {age: {$lt: 40}})
+	//lists all people under the age of 40
+
+7. db.people.find( { $and: [ {state: ("Florida")}, {gender: ("Female")}, {age: {$lt: 46}}, {age: {$gt: 39}}]})
+	//lists all females from Florida that are between the ages of 40-45 inclusive
+
+8. db.people.find({first_name: /^H/})
+	//lists all people whose first name starts with H
+
+9. db.people.find( {state: ("Michigan")}).sort({first_name: 1})
+	//lists all people from Michigan and sorts by first name
+
+10. db.people.find( { $or: [ { state: ("Virginia") }, { first_name: ("Virginia") } ] } )
+	//lists all people from Virginia or whose first name is Virginia
+
+11. db.people.find({age: {$lt: 30}}, {first_name: true, last_name: true})
+	//lists all people whose age is less than 30, returns ONLY first and last names
+
+12. db.people.find({state: ("Montana")}, {age: false})
+	//lists all people in Montana, displays all information except age
+
+13. db.people.find({email: /edu$/}, {email: true})
+	//lists all people who have .edu in their email; only displays email
+
+EXTENDED CHALLENGES
+14.
+15.
+16.
