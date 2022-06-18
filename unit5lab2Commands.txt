@@ -38,6 +38,11 @@
 	//lists all people who have .edu in their email; only displays email
 
 EXTENDED CHALLENGES
-14.
-15.
-16.
+14. db.people.countDocuments( { 'children.age': {$lt: 4 }} )
+	//counts all people who have children younger than 4
+
+15. db.people.countDocuments( { 'children': {$size: 0}} )
+	//counts all people who have no children
+
+16. db.people.countDocuments( { 'children': {$gt: {$size: 0}}} )
+	//counts all people who have at least 1 child
