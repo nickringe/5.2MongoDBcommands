@@ -1,0 +1,38 @@
+1. db.people.insertOne( { first_name: "Michael", 
+last_name: "Scott", email: "prisonmike@gmail.com", gender: "Male", 
+age: 27, state: "Pennsylvania", children: []} )
+	//inserts one person
+
+2. db.people.insertOne( { first_name: "Dwight", 
+last_name: "Schrute", email: "schrutefarms@gmail.com", gender: "Male", 
+age: 30, state: "Pennsylvania", children: [{ name: 'Boy', age: 2 }, { name: 'Girl', age: 6 }]} )
+	//inserts one person with two children
+
+3. db.people.updateOne({first_name: "Clarence", state: "North Dakota"}, {$set: {state: "South Dakota"}})
+	//updates one person named Clarence from North Dakota and to the state of South Dakota
+
+4. db.people.updateOne({first_name: "Rebecca", last_name: "Hayes"}, {$unset: {email: ""}})
+	//updates one person named Rebecca Hayes and removes her email address
+
+5. db.people.updateMany({state: "Missouri"}, {$inc: {age: 1}})
+	//increases the age of everyone from Missouri by 1
+
+6. db.people.replaceOne({first_name: "Jerry", last_name: "Baker"}, 
+{first_name: "Jerry", last_name: "Baker-Mendez", email: "jerry@classic.ly", gender:"Male", age: 28, 
+state: "Vermont", "children": [{name: "Alan", age: 18}, {name: "Jenny", age: 3}]})
+	//replaces Jerry Baker's information with all new information
+
+7. db.people.deleteOne({first_name: "Wanda", last_name: "Bowman"})
+	//removes Wanda Bowman completely
+
+8. db.people.deleteMany({email: null})
+	//removes all people who do not have an email specified in the database
+
+9. db.submissions.insertMany([{title: "The River Bend", upvotes: 10, downvotes: 2, artist: ObjectId("62aa802549dc6996f7ad7554")}, {title: "Nine Lives", upvotes: 7, downvotes: 0, artist: ObjectId("62aa802549dc6996f7ad7582")}, {title: "Star Bright", upvotes: 19, downvotes: 3, artist: ObjectId("62aa802549dc6996f7ad7605")}, {title: "Why Like This?", upvotes: 1, downvotes: 5, artist: ObjectId("62aa802549dc6996f7ad758b")}, {title: "Non Sequitur", upvotes: 11, downvotes: 1, artist: ObjectId("62aa802549dc6996f7ad7552")}])
+	//creates 'submissions' collection and inserts 5 documents into it
+
+10. db.submissions.updateOne({title: "The River Bend"}, {$inc: {upvotes: 2}})
+	//increments the upvotes on The River Bend by 2
+
+11. db.submissions.updateMany({upvotes: {$gte: 10}}, {$push: {round2: true}} )
+	//adds field round2 = true to all submissions with at least 10 upvotes
